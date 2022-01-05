@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/inputRoomnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Raumnummer"
+                android:inputType="textPersonName"
+                android:minHeight="55dp" />
+
+            <EditText
+                android:id="@+id/inputSeatcount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Anzahl der Sitzplätze"
+                android:inputType="number"
+                android:minHeight="55dp" />
+
+            <EditText
+                android:id="@+id/inputTablecount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Anzahl der zugehörigen Tische"
+                android:inputType="number"
+                android:minHeight="55dp" />
+
+            <EditText
+                android:id="@+id/inputSpecials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Besondere Eigenschaften/ Features des Raumes"
+                android:inputType="textMultiLine"
+                android:minHeight="110dp" />
+
+            <EditText
+                android:id="@+id/inputBuilding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="55dp"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/inputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="55dp"
+                android:hint="Sektion/Zahn/Teil des Gebäude" />
+
+            <EditText
+                android:id="@+id/inputFloor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="55dp"
+                android:hint="Stockwerk" />
+
+            <EditText
+                android:id="@+id/inputRoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="55dp"
+                android:hint="Nummmer" />
+
+            <EditText
+                android:id="@+id/inputDamaged"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:minHeight="110dp"
+                android:hint="Beschädigungen?" />
+
+            <EditText
+                android:id="@+id/inputAlias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="55dp"
+                android:hint="Alias/ Spitzname z.B. Audimax" />
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hinzufügen" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
