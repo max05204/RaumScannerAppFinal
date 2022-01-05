@@ -1,13 +1,20 @@
 package de.fhbielefeld.swe.raumscannerapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -59,10 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
         parseToArrays();
 
-        roomAdapter = new RoomAdapter(MainActivity.this, room_Roomnumber, room_Alias, room_Seatcount, room_Tablecount);
+        roomAdapter = new RoomAdapter(MainActivity.this,this, room_ID, room_Roomnumber, room_Alias, room_Seatcount, room_Tablecount);
         recyclerView.setAdapter(roomAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
     }
 
     void parseToArrays(){
@@ -88,4 +103,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.delete_all){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Alles Zurücksetzen");
+            builder.setMessage("Möchten Sie Wirklich alle Einträge enfernen?\nDies kann nicht rückgängig gemacht werden!");
+            builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    roomDB.deleteAll();
+                    recreate();
+                }
+            });
+            builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //nix machen
+                }
+            });
+            builder.create().show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
