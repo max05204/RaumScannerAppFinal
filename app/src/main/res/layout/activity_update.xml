@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity">
+    tools:context=".UpdateActivity">
+
 
     <ScrollView
         android:layout_width="391dp"
@@ -21,7 +22,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/inputRoomnumber"
+                android:id="@+id/inputRoomnumber2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -30,7 +31,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputSeatcount"
+                android:id="@+id/inputSeatcount2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -39,7 +40,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputTablecount"
+                android:id="@+id/inputTablecount2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -48,7 +49,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputSpecials"
+                android:id="@+id/inputSpecials2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -57,16 +58,16 @@
                 android:minHeight="110dp" />
 
             <EditText
-                android:id="@+id/inputBuilding"
+                android:id="@+id/inputBuilding2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Gebäude"
+                android:hint="Name"
                 android:inputType="textPersonName"
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputSection"
+                android:id="@+id/inputSection2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -75,7 +76,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputFloor"
+                android:id="@+id/inputFloor2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -84,7 +85,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputRoom"
+                android:id="@+id/inputRoom2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -93,7 +94,7 @@
                 android:minHeight="55dp" />
 
             <EditText
-                android:id="@+id/inputDamaged"
+                android:id="@+id/inputDamaged2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -102,7 +103,7 @@
                 android:minHeight="110dp" />
 
             <EditText
-                android:id="@+id/inputAlias"
+                android:id="@+id/inputAlias2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -111,11 +112,19 @@
                 android:minHeight="55dp" />
 
             <Button
-                android:id="@+id/add_button"
+                android:id="@+id/update_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hinzufügen" />
+                android:text="Änderungen speichern" />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E91E63"
+                android:text="Eintrag Löschen" />
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

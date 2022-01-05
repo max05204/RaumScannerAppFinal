@@ -40,7 +40,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String QUERY =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN_ROOMNUMBER + " TEXT, " +
                         COLUMN_SEATCOUNT + " INTEGER, " +
                         COLUMN_TABLECOUNT + " INTEGER, " +
@@ -105,4 +105,63 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    Cursor readSpecificByID(String ID){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE _id IS "+ ID +";";
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        else{
+
+        }
+        return cursor;
+    }
+
+    void updateData(String row_id, String roomnumber, int seatcount, int tablecount, String specials, String building, String section, String floor, String room, String damaged, String alias){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues content = new ContentValues();
+
+        content.put(COLUMN_ROOMNUMBER, roomnumber);
+        content.put(COLUMN_SEATCOUNT, seatcount);
+        content.put(COLUMN_TABLECOUNT, tablecount);
+        content.put(COLUMN_SPECIALS, specials);
+        content.put(COLUMN_BUILDING, building);
+        content.put(COLUMN_SECTION, section);
+        content.put(COLUMN_FLOOR, floor);
+        content.put(COLUMN_ROOM, room);
+        content.put(COLUMN_DAMAGED, damaged);
+        content.put(COLUMN_ALIAS, alias);
+
+        long res = db.update(TABLE_NAME, content, "_id=?", new String[]{row_id});
+
+        if(res == -1){
+            Toast.makeText(context, "Updaten fehlgeschlagen", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Update erfolgreich", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void deleteByID(String row_id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        long res = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+
+        if(res == -1){
+            Toast.makeText(context, "Löschen fehlgeschlagen", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Löschen erfolgreich", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void deleteAll(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME + ";");
+    }
+
 }

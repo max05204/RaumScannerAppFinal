@@ -10,12 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RaumScannerApp">
         <activity
-            android:name=".AddActivity"
+            android:name=".UpdateActivity"
             android:parentActivityName=".MainActivity"
-            android:label="Raum Hinzufügen"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"
-            />
+            android:label="Raum Hinzufügen"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
